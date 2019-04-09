@@ -1,6 +1,6 @@
 import React from 'react';
 import {Modal, Input, Button, Icon} from 'semantic-ui-react';
-import mime from 'mime-type'
+import mime from 'mime-types'
 class FileModal extends React.Component {
 
 	state = {
@@ -18,8 +18,8 @@ class FileModal extends React.Component {
 
 	sendFile = () => {
 
-		const {file, closeModal} = this.state;
-		const {uploadFile} = this.props;
+		const {file} = this.state;
+		const {uploadFile, closeModal} = this.props;
 		if(file !== null) {
 			if(this.isAuthorized(file.name)) {
 				const metadata = { contentType: mime.lookup(file.name) };
